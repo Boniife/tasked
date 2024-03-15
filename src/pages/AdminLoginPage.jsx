@@ -5,7 +5,6 @@ import * as yup from "yup";
 import MkdSDK from "../utils/MkdSDK";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../authContext";
-import SnackBar from "../components/SnackBar";
 
 const AdminLoginPage = () => {
   const schema = yup
@@ -35,7 +34,6 @@ const AdminLoginPage = () => {
         setError("email", { type: "manual", message: "Invalid credentials" });
       } else {
         dispatch({ type: "LOGIN", payload: response }); 
-        dispatch({ type: "SET_GLOBAL_MESSAGE", payload: "Login successful" });
         navigate('/admin/dashboard');
       }
     } catch (error) {
@@ -95,7 +93,6 @@ const AdminLoginPage = () => {
           />
         </div>
       </form>
-      <SnackBar />
     </div>
   );
 };
